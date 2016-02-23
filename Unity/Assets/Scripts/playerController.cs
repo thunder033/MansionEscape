@@ -5,7 +5,7 @@ public class playerController : MonoBehaviour {
 
 	//player related
 	public float maxSpeed = 10f;
-	public float jumpForce = .5f;
+	public float jumpForce = .05f;
 	bool facingRight = true;
 	bool grounded = false;
 	Animator anim;
@@ -51,7 +51,7 @@ public class playerController : MonoBehaviour {
 			GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, jumpForce));
 		}
 
-		if (Input.GetKeyDown (KeyCode.W) && this.transform.position.z < 2) 
+		if (Input.GetKeyDown (KeyCode.W) && this.transform.position.z < 1) 
 		{
 			transform.Translate (new Vector3 (0, 0, 1));
 		}

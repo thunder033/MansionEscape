@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Combatant.cs" />
+     <Compile Include="Assets\Scripts\Gather\promptPickUp.cs" />
      <Compile Include="Assets\Scripts\Menu\playGame.cs" />
      <Compile Include="Assets\Scripts\playerController.cs" />
      <Compile Include="Assets\Scripts\smoothFollow.cs" />
