@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
 
 	//player related
-	public float maxSpeed = 10f;
-	public float jumpForce = .05f;
+	public float maxSpeed = 150f;
+	public float jumpForce = 5000f;
 	bool facingRight = true;
 	bool grounded = false;
 	Animator anim;
@@ -49,27 +50,45 @@ public class playerController : MonoBehaviour {
 
 	void Update()
 	{
-		if (grounded && Input.GetKeyDown (KeyCode.Space)) 
-		{
-			anim.SetBool ("Ground", false);
-			GetComponent<Rigidbody2D>().AddForce (new Vector2 (0, jumpForce));
-		}
+		if (climbDown.onRope == true) {
+			Collider2D myCollider = gameObject.GetComponent<Collider2D>();
+			myCollider.enabled = false;
+			if (gameObject.transform.position.y < 65) 
+			{
+				myCollider.enabled = true;
+			}
+			if (Input.GetKeyDown (KeyCode.S)) {
+				transform.Translate (new Vector3 (0, -5, 0));
+			}
 
-		if (Input.GetKeyDown (KeyCode.W) && this.transform.position.z < 1) 
-		{
-			transform.Translate (new Vector3 (0, 0, 1));
-		}
+			if (Input.GetKeyDown (KeyCode.W)) {
+				transform.Translate (new Vector3 (0, 5, 0));
+			}
+		} 
 
-		if (Input.GetKeyDown (KeyCode.S) && this.transform.position.z > 0) 
-		{
-			transform.Translate (new Vector3 (0, 0, -1));
-		}
+		else if (climbDown.onRope == false) {
+			if (grounded && Input.GetKeyDown (KeyCode.Space)) {
+				anim.SetBool ("Ground", false);
+				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
+			}
 
-		if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) 
-		{
-			Destroy (promptPickUp.pickMe.gameObject);
+			if (Input.GetKeyDown (KeyCode.W) && this.transform.position.z < 1) {
+				transform.Translate (new Vector3 (0, 0, 1));
+			}
+
+			if (Input.GetKeyDown (KeyCode.S) && this.transform.position.z > 0) {
+				transform.Translate (new Vector3 (0, 0, -1));
+			}
+
+			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
+				Destroy (promptPickUp.pickMe.gameObject);
+				promptPickUp.guiEnable = false;
+			}
+
+			if (Input.GetKeyDown (KeyCode.E) && promptEscape.atWindow == true) {
+				SceneManager.LoadScene ("Rappel");
+			}
 		}
-			
 	}
 
 	void Flip()

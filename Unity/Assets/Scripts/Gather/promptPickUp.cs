@@ -5,7 +5,7 @@ public class promptPickUp : MonoBehaviour
 {
 	public static GameObject pickMe = null;
 	public GameObject pickMeTest = null;
-
+	public static bool guiEnable = true;
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -13,7 +13,7 @@ public class promptPickUp : MonoBehaviour
 		{
 			pickMe = gameObject;
 			pickMeTest = gameObject;
-			Debug.Log ("YES " + pickMe.ToString());
+			Debug.Log ("YES");
 		}
 	}
 
@@ -23,14 +23,14 @@ public class promptPickUp : MonoBehaviour
 		{
 			pickMe = null;
 			pickMeTest = null;
-			Debug.Log ("NO " + pickMe.ToString());
+			Debug.Log ("NO");
 		}
 	}
 
 	void OnGUI()
 	{
 		GUI.contentColor = Color.white;
-		if (pickMe != null) 
+		if (guiEnable == true) 
 		{
 			GUI.Label (new Rect (this.transform.position.x, this.transform.position.y + 1, 25, 10), "Press E to pick up ???");
 		}
