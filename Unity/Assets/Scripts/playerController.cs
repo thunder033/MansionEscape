@@ -15,6 +15,10 @@ public class playerController : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 
+	//pick up var
+//	public static GameObject pickMe = null;
+//	public GameObject pickMeTest = null;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -60,6 +64,12 @@ public class playerController : MonoBehaviour {
 		{
 			transform.Translate (new Vector3 (0, 0, -1));
 		}
+
+		if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) 
+		{
+			Destroy (promptPickUp.pickMe.gameObject);
+		}
+			
 	}
 
 	void Flip()
@@ -69,4 +79,24 @@ public class playerController : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+//	void OnTriggerEnter(Collider other)
+//	{
+//		if (other.gameObject.CompareTag("pickUps")) 
+//		{
+//			pickMe = other.gameObject;
+//			pickMeTest = other.gameObject;
+//		}
+//
+//		GUI.Label (new Rect (this.transform.position.x, this.transform.position.y + 5, 25, 10), "Press E to pick up ???");
+//	}
+//
+//	void OnTriggerExit(Collider other)
+//	{
+//		if (other.gameObject == pickMe) 
+//		{
+//			pickMe = null;
+//			pickMeTest = null;
+//		}
+//	}
 }

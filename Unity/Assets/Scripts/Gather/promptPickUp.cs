@@ -1,31 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class promptPickUp : MonoBehaviour {
+public class promptPickUp : MonoBehaviour 
+{
+	public static GameObject pickMe = null;
+	public GameObject pickMeTest = null;
 
 
-	public bool hasCollided = false;
-	public string labelText;
-
-	public void OnGUI()
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (hasCollided == true) 
+		if (other.gameObject.CompareTag("Player")) 
 		{
-			GUI.Box (Rect (140, Screen.height - 50, Screen.width - 300, 120), (labelText));
-		}
-	}
-	
-	public void OnTriggerEnter(Collider2D myCollider)
-	{
-		if (myCollider.gameObject.tag == "Player") 
-		{
-			hasCollided = true;
-			labelText = "Press E to pick up ???";
+			pickMe = gameObject;
+			pickMeTest = gameObject;
+			Debug.Log ("YES " + pickMe.ToString());
 		}
 	}
 
-	public void OnTriggerExit(Collider2D otherCollider)
+	void OnTriggerExit2D(Collider2D other)
 	{
-		hasCollided = false;
+		if (other.gameObject.CompareTag("Player")) 
+		{
+			pickMe = null;
+			pickMeTest = null;
+			Debug.Log ("NO " + pickMe.ToString());
+		}
 	}
+
+	void OnGUI()
+	{
+		GUI.contentColor = Color.white;
+		if (pickMe != null) 
+		{
+			GUI.Label (new Rect (this.transform.position.x, this.transform.position.y + 1, 25, 10), "Press E to pick up ???");
+		}
+	}
+
+
 }
