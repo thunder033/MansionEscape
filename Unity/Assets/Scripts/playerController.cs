@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 public class playerController : MonoBehaviour {
 
 	//player related
-	public float maxSpeed = 150f;
-	public float jumpForce = 5000f;
+	public float maxSpeed = 10f;
+	public float jumpForce = 700f;
 	bool facingRight = true;
 	bool grounded = false;
 	Animator anim;
+	Rigidbody2D myBody;
 
 	//used for checking groudned bool
 	public Transform groundCheck;
@@ -51,12 +52,8 @@ public class playerController : MonoBehaviour {
 	void Update()
 	{
 		if (climbDown.onRope == true) {
-			Collider2D myCollider = gameObject.GetComponent<Collider2D>();
-			myCollider.enabled = false;
-			if (gameObject.transform.position.y < 65) 
-			{
-				myCollider.enabled = true;
-			}
+			myBody = gameObject.GetComponent<Rigidbody2D>();
+			myBody.gravityScale = 0;
 			if (Input.GetKeyDown (KeyCode.S)) {
 				transform.Translate (new Vector3 (0, -5, 0));
 			}
@@ -67,6 +64,8 @@ public class playerController : MonoBehaviour {
 		} 
 
 		else if (climbDown.onRope == false) {
+			myBody = gameObject.GetComponent<Rigidbody2D>();
+			myBody.gravityScale = 1;
 			if (grounded && Input.GetKeyDown (KeyCode.Space)) {
 				anim.SetBool ("Ground", false);
 				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
