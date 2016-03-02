@@ -40,6 +40,14 @@ public class characterController2D : MonoBehaviour {
 		} else if (move < 0 && facingRight) {
 			Flip ();
 		}
+
+		if (climbDown.onRope == true) {
+			anim.SetBool ("Climbing", true);
+		} 
+		else if (climbDown.onRope == false) 
+		{
+			anim.SetBool("Climbing", false);
+		}
 	}
 
 	void Update()
