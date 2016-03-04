@@ -89,7 +89,7 @@ public class characterController2D : MonoBehaviour {
 			if (grounded && Input.GetKeyDown (KeyCode.W)) {
 				anim.SetBool ("Ground", false);
                 jumping = true;
-                jumpTimeout = .15f;
+                jumpTimeout = .25f;
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
