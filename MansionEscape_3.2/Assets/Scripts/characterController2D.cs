@@ -29,19 +29,27 @@ public class characterController2D : MonoBehaviour {
 		//speed up or down
 		anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D> ().velocity.y);
 
-		float move = Input.GetAxis("Horizontal");
+        if(grounded)
+        {
+            float move = Input.GetAxis("Horizontal");
+            anim.SetFloat("Speed", Mathf.Abs(move));
 
-		anim.SetFloat ("Speed", Mathf.Abs (move));
+            GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            if (move > 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (move < 0 && facingRight)
+            {
+                Flip();
+            }
 
-		if (move > 0 && !facingRight) {
-			Flip ();
-		} else if (move < 0 && facingRight) {
-			Flip ();
-		}
+        }
 
-		if (climbDown.onRope == true) {
+
+
+        if (climbDown.onRope == true) {
 			anim.SetBool ("Climbing", true);
 		} 
 		else if (climbDown.onRope == false) 
@@ -63,7 +71,7 @@ public class characterController2D : MonoBehaviour {
 			}
 		} else if (climbDown.onRope == false) {
 			gameObject.GetComponent<Rigidbody2D> ().gravityScale = 1;
-			if (grounded && Input.GetKeyDown (KeyCode.Space)) {
+			if (grounded && Input.GetKeyDown (KeyCode.W)) {
 				anim.SetBool ("Ground", false);
 				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
 			}
