@@ -13,23 +13,29 @@ public class characterController2D : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 
+    bool jumping = false;
+    float jumpTimeout = 0;
+
 	public float jumpForce = 700f;
 	
 	void Start () 
 	{
 		anim = GetComponent<Animator> ();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () 
-	{
-		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
-		anim.SetBool ("Ground", grounded);
 
-		//speed up or down
-		anim.SetFloat ("vSpeed", GetComponent<Rigidbody2D> ().velocity.y);
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        anim.SetBool("Ground", grounded);
 
-        if(grounded)
+        jumping = !(jumpTimeout == 0 && grounded);
+        anim.SetBool("Jumping", jumping);
+
+        //speed up or down
+        anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
+
+        if (grounded)
         {
             float move = Input.GetAxis("Horizontal");
             anim.SetFloat("Speed", Mathf.Abs(move));
@@ -47,7 +53,16 @@ public class characterController2D : MonoBehaviour {
 
         }
 
+        if (jumping && jumpTimeout > 0)
+        {
+            jumpTimeout -= Time.deltaTime;
 
+            if (jumpTimeout <= 0)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+                jumpTimeout = 0;
+            }
+        }
 
         if (climbDown.onRope == true) {
 			anim.SetBool ("Climbing", true);
@@ -73,7 +88,8 @@ public class characterController2D : MonoBehaviour {
 			gameObject.GetComponent<Rigidbody2D> ().gravityScale = 1;
 			if (grounded && Input.GetKeyDown (KeyCode.W)) {
 				anim.SetBool ("Ground", false);
-				GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpForce));
+                jumping = true;
+                jumpTimeout = .15f;
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
