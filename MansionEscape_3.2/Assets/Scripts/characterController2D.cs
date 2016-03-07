@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Animator))]
 public class characterController2D : MonoBehaviour {
 
 	public float maxSpeed = 10f;
