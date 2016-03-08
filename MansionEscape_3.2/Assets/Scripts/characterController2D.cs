@@ -60,7 +60,7 @@ public class characterController2D : MonoBehaviour {
 
             if (jumpTimeout <= 0)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce * (grounded ? 1 : 0)));
                 jumpTimeout = 0;
             }
         }
