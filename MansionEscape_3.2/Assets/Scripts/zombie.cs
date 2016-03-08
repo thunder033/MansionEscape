@@ -9,6 +9,7 @@ public class zombie : MonoBehaviour {
 
     Combatant combatant;
     Animator anim;
+    int direction = 1;
 
     Vector3 velocity;
     float moveTimer = 0;
@@ -25,10 +26,22 @@ public class zombie : MonoBehaviour {
 
         //if((moveTimer + 180) % 720 > 360)
         //{
-            velocity = new Vector3(speed, 0, 0) * Mathf.Sin(moveTimer);
+            velocity = new Vector3(speed, 0, 0) * Mathf.Sign(Mathf.Sin(moveTimer/2)) * Time.deltaTime;
         //}
         
         anim.SetFloat("MoveSpeed", velocity.magnitude);
         transform.position += velocity;
+
+        if(velocity.x/Mathf.Abs(velocity.x) != direction)
+        {
+            Flip();
+        }
 	}
+
+    //flip character through scaling
+    void Flip()
+    {
+        direction *= -1;
+        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+    }
 }
