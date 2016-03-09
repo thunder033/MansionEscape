@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Animator))]
 public class characterController2D : MonoBehaviour {
 
 	public float maxSpeed = 10f;
@@ -59,7 +60,7 @@ public class characterController2D : MonoBehaviour {
 
             if (jumpTimeout <= 0)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce * (grounded ? 1 : 0)));
                 jumpTimeout = 0;
             }
         }
@@ -89,7 +90,7 @@ public class characterController2D : MonoBehaviour {
 			if (grounded && Input.GetKeyDown (KeyCode.W)) {
 				anim.SetBool ("Ground", false);
                 jumping = true;
-                jumpTimeout = .15f;
+                jumpTimeout = .25f;
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {

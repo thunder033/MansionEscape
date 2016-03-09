@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: playerJump
+  m_Name: zombieAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,24 +18,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 2c37c88f2d884fa4791c029dde13144e, type: 3}
-    - time: .0416666679
-      value: {fileID: 21300000, guid: f2a5e2efab8625a4c9aabdd3d0df68ec, type: 3}
-    - time: .0833333358
-      value: {fileID: 21300000, guid: 0c6894b96798285449ec651fb9cc411a, type: 3}
-    - time: .125
-      value: {fileID: 21300000, guid: c002eab3dafac324c869a9d62b8861b4, type: 3}
-    - time: .166666672
-      value: {fileID: 21300000, guid: f183ae9551cce554b8de31d9e1f92563, type: 3}
-    - time: .208333328
-      value: {fileID: 21300000, guid: 073b278f59a741046b1a8d7836b526e2, type: 3}
-    - time: .25
-      value: {fileID: 21300000, guid: 7d19d0b91c937244d9f0b1aaf1c9caa0, type: 3}
+      value: {fileID: 0}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 24
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -49,17 +37,11 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 2c37c88f2d884fa4791c029dde13144e, type: 3}
-    - {fileID: 21300000, guid: f2a5e2efab8625a4c9aabdd3d0df68ec, type: 3}
-    - {fileID: 21300000, guid: 0c6894b96798285449ec651fb9cc411a, type: 3}
-    - {fileID: 21300000, guid: c002eab3dafac324c869a9d62b8861b4, type: 3}
-    - {fileID: 21300000, guid: f183ae9551cce554b8de31d9e1f92563, type: 3}
-    - {fileID: 21300000, guid: 073b278f59a741046b1a8d7836b526e2, type: 3}
-    - {fileID: 21300000, guid: 7d19d0b91c937244d9f0b1aaf1c9caa0, type: 3}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .291666657
+    m_StopTime: .0833333358
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
