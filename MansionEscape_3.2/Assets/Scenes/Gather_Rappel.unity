@@ -353,6 +353,17 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 496778, guid: ef1dd10a0d365cc418e121d81aa7aaee, type: 2}
   m_PrefabInternal: {fileID: 1737490373}
+--- !u!114 &442171847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442171841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54ad2f4c584ee943b07bc066c8af2cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &442171848
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1104,6 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  target: {fileID: 442171847}
 --- !u!114 &1855915183
 MonoBehaviour:
   m_ObjectHideFlags: 0
