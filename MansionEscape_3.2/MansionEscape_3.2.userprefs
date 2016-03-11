@@ -1,11 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\playGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\inventoryManagement.cs">
     <Files>
-      <File FileName="Assets\Scripts\characterController2D.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gather&amp;Rappel\spawnItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\characterController2D.cs" Line="103" Column="50" />
       <File FileName="Assets\Scripts\Menu\playGame.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\smoothFollow.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Gather&amp;Rappel\promptPickUp.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\inventoryManagement.cs" Line="19" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

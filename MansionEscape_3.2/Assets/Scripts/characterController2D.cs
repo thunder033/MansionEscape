@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Animator))]
 public class characterController2D : MonoBehaviour {
@@ -94,6 +95,14 @@ public class characterController2D : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
+				inventoryManagement.addItem(promptPickUp.pickMe);
+
+				//test purposes
+				foreach (GameObject g in inventoryManagement.inventory)
+				{
+					Debug.Log ("Inventory Contains: " + g.name);
+				}
+
 				Destroy (promptPickUp.pickMe.gameObject);
 				promptPickUp.guiEnable = false;
 			}
