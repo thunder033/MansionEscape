@@ -175,7 +175,7 @@ Prefab:
         type: 3}
     - target: {fileID: 5074576, guid: ef1dd10a0d365cc418e121d81aa7aaee, type: 2}
       propertyPath: m_LinearDrag
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 21270910, guid: ef1dd10a0d365cc418e121d81aa7aaee, type: 2}
       propertyPath: m_SortingLayerID
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a67fa0ab1c3be64abac7b8a84ca9a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 5
   groundCheck: {fileID: 716891835}
   whatIsGround:
     serializedVersion: 2
@@ -792,6 +792,18 @@ Prefab:
     - target: {fileID: 420776, guid: e78bfad96982de74b8bdbea4835e7464, type: 2}
       propertyPath: m_LocalPosition.y
       value: 10.3900003
+      objectReference: {fileID: 0}
+    - target: {fileID: 21258014, guid: e78bfad96982de74b8bdbea4835e7464, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442418, guid: e78bfad96982de74b8bdbea4835e7464, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.78999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 492108, guid: e78bfad96982de74b8bdbea4835e7464, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.19999981
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e78bfad96982de74b8bdbea4835e7464, type: 2}

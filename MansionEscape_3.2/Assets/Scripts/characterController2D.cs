@@ -5,6 +5,8 @@ using System.Collections;
 public class characterController2D : MonoBehaviour {
 
 	public float maxSpeed = 10f;
+    float speed = 0;
+    float acceleration = 10;
 	bool facingRight = true;
 
 	Animator anim;
@@ -16,10 +18,13 @@ public class characterController2D : MonoBehaviour {
 
     bool jumping = false;
     float jumpTimeout = 0;
-
 	public float jumpForce = 700f;
-	
-	void Start () 
+
+    float landTimeout = 0;
+    float landingModifier = 25;
+    float landingThreshold = .5f;
+
+    void Start () 
 	{
 		anim = GetComponent<Animator> ();
 	}
@@ -30,28 +35,49 @@ public class characterController2D : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Ground", grounded);
 
-        jumping = !(jumpTimeout == 0 && grounded);
         anim.SetBool("Jumping", jumping);
 
         //speed up or down
-        anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
-
-        if (grounded)
+        float vSpeed = GetComponent<Rigidbody2D>().velocity.y;
+        anim.SetFloat("vSpeed", vSpeed);
+        
+        if(-vSpeed > landingThreshold && -vSpeed > landTimeout / landingModifier)
         {
-            float move = Input.GetAxis("Horizontal");
-            anim.SetFloat("Speed", Mathf.Abs(move));
+            landTimeout = -vSpeed / landingModifier;
+        }
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        landTimeout -= grounded ? Time.deltaTime : 0;
+        speed *= .88f;
+        anim.speed = 1;
 
-            if (move > 0 && !facingRight)
+        if (grounded && landTimeout <= 0)
+        {
+            speed += Input.GetAxis("Horizontal") * Time.deltaTime * acceleration;
+            speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
+
+            anim.SetFloat("Speed", Mathf.Abs(speed));
+
+            if(Mathf.Abs(speed) > .25f)
+            {
+                anim.speed = Mathf.Abs(speed * 2 / maxSpeed);
+            }
+
+            GetComponent<Rigidbody2D>().velocity = new Vector2(speed * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+            if (speed > 0 && !facingRight)
             {
                 Flip();
             }
-            else if (move < 0 && facingRight)
+            else if (speed < 0 && facingRight)
             {
                 Flip();
             }
-
+        }
+        else if(landTimeout > 0 && grounded)
+        {
+            speed = 0;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            anim.SetFloat("Speed", 0);
         }
 
         if (jumping && jumpTimeout > 0)
@@ -62,6 +88,7 @@ public class characterController2D : MonoBehaviour {
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce * (grounded ? 1 : 0)));
                 jumpTimeout = 0;
+                jumping = false;
             }
         }
 
