@@ -23,16 +23,17 @@ public class zombie : MonoBehaviour {
 	void Update () {
         moveTimer += Time.deltaTime;
         velocity = Vector3.zero;
+        float period = 5;
 
-        //if((moveTimer + 180) % 720 > 360)
-        //{
-            velocity = new Vector3(speed, 0, 0) * Mathf.Sign(Mathf.Sin(moveTimer/2)) * Time.deltaTime;
-        //}
+        if((moveTimer + period/2) % (period * 2) > period)
+        {
+            velocity = new Vector3(speed, 0, 0) * Mathf.Sign(Mathf.Sin(moveTimer/period)) * Time.deltaTime;
+        }
         
         anim.SetFloat("MoveSpeed", velocity.magnitude);
         transform.position += velocity;
 
-        if(velocity.x/Mathf.Abs(velocity.x) != direction)
+        if(velocity.x/Mathf.Abs(velocity.x) != direction && velocity.x != 0)
         {
             Flip();
         }
