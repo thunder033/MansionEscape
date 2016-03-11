@@ -4,7 +4,7 @@ using System.Collections;
 public class promptPickUp : MonoBehaviour 
 {
 	public static GameObject pickMe = null;
-	public GameObject pickMeTest = null;
+	public string pickMeTest = null;
 	public static bool guiEnable = true;
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -12,8 +12,8 @@ public class promptPickUp : MonoBehaviour
 		if (other.gameObject.CompareTag("Player")) 
 		{
 			pickMe = gameObject;
-			pickMeTest = gameObject;
-			Debug.Log ("YES");
+			pickMeTest = gameObject.name;
+			Debug.Log ("YES " + pickMeTest);
 		}
 	}
 

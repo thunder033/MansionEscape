@@ -95,15 +95,15 @@ public class characterController2D : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
-				inventoryManagement.addItem(promptPickUp.pickMe);
+				inventoryManagement.addItem(promptPickUp.pickMe.name);
 
 				//test purposes
-				foreach (GameObject g in inventoryManagement.inventory)
+				foreach (string g in inventoryManagement.inventory)
 				{
-					Debug.Log ("Inventory Contains: " + g.name);
+					Debug.Log ("Inventory Contains: " + g);
 				}
 
-				Destroy (promptPickUp.pickMe.gameObject);
+				Destroy (promptPickUp.pickMe);
 				promptPickUp.guiEnable = false;
 			}
 		}
