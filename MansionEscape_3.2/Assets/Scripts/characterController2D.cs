@@ -37,8 +37,8 @@ public class characterController2D : MonoBehaviour {
         //speed up or down
         anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
-        if (grounded)
-        {
+        //if (grounded)
+       // {
             float move = Input.GetAxis("Horizontal");
             anim.SetFloat("Speed", Mathf.Abs(move));
 
@@ -53,7 +53,7 @@ public class characterController2D : MonoBehaviour {
                 Flip();
             }
 
-        }
+     //   }
 
         if (jumping && jumpTimeout > 0)
         {
