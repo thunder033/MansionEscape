@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Combatant.cs" />
+     <Compile Include="Assets\Scripts\Gather&amp;Rappel\DamageManagement.cs" />
      <Compile Include="Assets\Scripts\Gather&amp;Rappel\attack.cs" />
      <Compile Include="Assets\Scripts\Gather&amp;Rappel\climbDown.cs" />
      <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptEscape.cs" />

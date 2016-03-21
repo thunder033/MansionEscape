@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Animator))]
 public class characterController2D : MonoBehaviour {
 
+	public int health = 100;
 	public float maxSpeed = 10f;
 	bool facingRight = true;
 
@@ -106,6 +107,18 @@ public class characterController2D : MonoBehaviour {
 				Destroy (promptPickUp.pickMe);
 				promptPickUp.guiEnable = false;
 			}
+		}
+
+		if (zombie.touching && zombie.attacking) 
+		{
+			health -= 10;
+			Debug.Log (health);
+		}
+
+		//DIE
+		if (health == 0) 
+		{
+			Application.LoadLevel("Menu1");
 		}
 	}
 	//flip character through scaling

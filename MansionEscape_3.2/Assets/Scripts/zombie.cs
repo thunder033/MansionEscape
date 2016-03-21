@@ -1,32 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Combatant))]
-[RequireComponent(typeof(Animator))]
 public class zombie : MonoBehaviour {
 
-    public float speed;
-
-    Combatant combatant;
-    public Combatant target;
+    public float speed = 1f;
+    public GameObject target;
     Animator anim;
     int direction = 1;
     float attackCooldown = 0;
+	public static bool touching = false;
+	public static bool attacking = false;
 
     Vector3 velocity;
     float moveTimer = 0;
 	// Use this for initialization
 	void Start () {
-        combatant = GetComponent<Combatant>();
         anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        
+	void FixedUpdate () {
+		speed = 1f;
         if(attackCooldown > 0)
         {
             anim.SetBool("Attacking", false);
+			attacking = false;
             attackCooldown -= Time.deltaTime;
         }
         else
@@ -35,7 +33,7 @@ public class zombie : MonoBehaviour {
         }
         
         velocity = Vector3.zero;
-        float period = 5;
+        float period = 3;
 
         if((moveTimer + period/2) % (period * 2) > period && attackCooldown <= 0)
         {
@@ -50,17 +48,34 @@ public class zombie : MonoBehaviour {
             Flip();
         }
 
-        Vector3 disp = transform.position - target.transform.position;
+        Vector3 disp = this.transform.position - target.transform.position;
         if (disp.magnitude < 2 && attackCooldown <= 0)
         {
             anim.SetBool("Attacking", true);
-            attackCooldown = 5;
+			attacking = true;
+            attackCooldown = 3;
             if(Mathf.Sign(disp.x) == direction)
             {
                 Flip();
             }
         }
             
+	}
+
+	public void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag ("Player")) 
+		{
+			touching = true;
+		}
+	}
+
+	public void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag ("Player")) 
+		{
+			touching = false;
+		}
 	}
 
     //flip character through scaling
