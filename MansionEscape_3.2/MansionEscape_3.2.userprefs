@@ -2,15 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\zombie.cs">
     <Files>
-      <File FileName="Assets\Scripts\zombie.cs" Line="16" Column="22" />
-      <File FileName="Assets\Scripts\endGame.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\inventoryManagement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gather&amp;Rappel\spawnItem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\characterController2D.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\characterController2D.cs" Line="32" Column="6" />
       <File FileName="Assets\Scripts\Menu\playGame.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\smoothFollow.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Gather&amp;Rappel\promptPickUp.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Combatant.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\WinLose.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\sword.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\zombie.cs" Line="77" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -20,6 +20,7 @@ public class characterController2D : MonoBehaviour {
     float jumpTimeout = 0;
 
 	public float jumpForce = 700f;
+	public float attackCooldown = 0f;
 	
 	void Start () 
 	{
@@ -29,6 +30,7 @@ public class characterController2D : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
+
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Ground", grounded);
 
@@ -78,6 +80,12 @@ public class characterController2D : MonoBehaviour {
 
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			sword.Attack();
+
+		}
+
 		if (climbDown.onRope == true) {
 			gameObject.GetComponent<Rigidbody2D> ().gravityScale = 0;
 			if (Input.GetKeyDown (KeyCode.S)) {
@@ -120,6 +128,8 @@ public class characterController2D : MonoBehaviour {
 		{
 			Application.LoadLevel("Menu1");
 		}
+
+
 	}
 	//flip character through scaling
 	void Flip()

@@ -10,6 +10,7 @@ public class zombie : MonoBehaviour {
     float attackCooldown = 0;
 	public static bool touching = false;
 	public static bool attacking = false;
+	public int health = 100;
 
     Vector3 velocity;
     float moveTimer = 0;
@@ -43,10 +44,9 @@ public class zombie : MonoBehaviour {
         anim.SetFloat("MoveSpeed", velocity.magnitude);
         transform.position += velocity;
 
-        if(velocity.x/Mathf.Abs(velocity.x) != direction && velocity.x != 0)
-        {
-            Flip();
-        }
+        if (velocity.x / Mathf.Abs (velocity.x) != direction && velocity.x != 0) {
+			Flip ();
+		}
 
         Vector3 disp = this.transform.position - target.transform.position;
         if (disp.magnitude < 2 && attackCooldown <= 0)
@@ -60,6 +60,9 @@ public class zombie : MonoBehaviour {
             }
         }
             
+		if (health <= 0) {
+			Destroy(gameObject);
+		}
 	}
 
 	public void OnTriggerEnter2D(Collider2D other)
@@ -67,6 +70,12 @@ public class zombie : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Player")) 
 		{
 			touching = true;
+		}
+
+		else if (other.CompareTag ("PlayerWeapon")) 
+		{
+			health -= 20;
+			Debug.Log ("Zom Health " + health);
 		}
 	}
 
@@ -77,6 +86,7 @@ public class zombie : MonoBehaviour {
 			touching = false;
 		}
 	}
+	
 
     //flip character through scaling
     void Flip()
