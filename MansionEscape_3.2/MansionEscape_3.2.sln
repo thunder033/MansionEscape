@@ -1,11 +1,11 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{23643FDE-D05D-05DC-2961-6A4738C47841}") = "MansionEscape_3.2", "Assembly-CSharp-firstpass.csproj", "{45BF6DB7-435C-39D3-96AF-4ECF4E7AE56E}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MansionEscape_3.2.CSharp.Plugins", "MansionEscape_3.2.CSharp.Plugins.csproj", "{6BDE3971-186E-56CB-A311-D5DC35F6230E}"
 EndProject
-Project("{23643FDE-D05D-05DC-2961-6A4738C47841}") = "MansionEscape_3.2", "Assembly-CSharp.csproj", "{2347598F-AA20-A40D-591F-13E0DAFF2861}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MansionEscape_3.2.CSharp", "MansionEscape_3.2.CSharp.csproj", "{ED8DC79C-FF2E-BE1F-073B-8B2A965FDE0C}"
 EndProject
-Project("{23643FDE-D05D-05DC-2961-6A4738C47841}") = "MansionEscape_3.2", "Assembly-CSharp-Editor.csproj", "{45D6129D-CB28-C5DB-5A58-BB29BFF40702}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MansionEscape_3.2.CSharp.Editor", "MansionEscape_3.2.CSharp.Editor.csproj", "{E8FA90A3-EF8A-9DE0-3205-548EA284A786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,40 +13,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{45BF6DB7-435C-39D3-96AF-4ECF4E7AE56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45BF6DB7-435C-39D3-96AF-4ECF4E7AE56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45BF6DB7-435C-39D3-96AF-4ECF4E7AE56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45BF6DB7-435C-39D3-96AF-4ECF4E7AE56E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2347598F-AA20-A40D-591F-13E0DAFF2861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2347598F-AA20-A40D-591F-13E0DAFF2861}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2347598F-AA20-A40D-591F-13E0DAFF2861}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2347598F-AA20-A40D-591F-13E0DAFF2861}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45D6129D-CB28-C5DB-5A58-BB29BFF40702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45D6129D-CB28-C5DB-5A58-BB29BFF40702}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45D6129D-CB28-C5DB-5A58-BB29BFF40702}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45D6129D-CB28-C5DB-5A58-BB29BFF40702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BDE3971-186E-56CB-A311-D5DC35F6230E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BDE3971-186E-56CB-A311-D5DC35F6230E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BDE3971-186E-56CB-A311-D5DC35F6230E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BDE3971-186E-56CB-A311-D5DC35F6230E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8DC79C-FF2E-BE1F-073B-8B2A965FDE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8DC79C-FF2E-BE1F-073B-8B2A965FDE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8DC79C-FF2E-BE1F-073B-8B2A965FDE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8DC79C-FF2E-BE1F-073B-8B2A965FDE0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FA90A3-EF8A-9DE0-3205-548EA284A786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FA90A3-EF8A-9DE0-3205-548EA284A786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FA90A3-EF8A-9DE0-3205-548EA284A786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FA90A3-EF8A-9DE0-3205-548EA284A786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																								GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
-		Policies = $0
-		$0.TextStylePolicy = $1
-		$1.inheritsSet = null
-		$1.scope = text/x-csharp
-		$0.CSharpFormattingPolicy = $2
-		$2.inheritsSet = Mono
-		$2.inheritsScope = text/x-csharp
-		$2.scope = text/x-csharp
-		$0.TextStylePolicy = $3
-		$3.FileWidth = 120
-		$3.TabWidth = 4
-		$3.IndentWidth = 4
-		$3.EolMarker = Unix
-		$3.inheritsSet = Mono
-		$3.inheritsScope = text/plain
-		$3.scope = text/plain
-	EndGlobalSection
-
 EndGlobal

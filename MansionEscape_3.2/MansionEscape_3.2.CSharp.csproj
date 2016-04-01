@@ -52,11 +52,23 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
@@ -82,13 +94,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Combatant.cs" />
+    <Compile Include="Assets\Scripts\GameOver_TextChange.cs" />
+    <Compile Include="Assets\Scripts\Gather&amp;Rappel\DamageManagement.cs" />
+    <Compile Include="Assets\Scripts\Gather&amp;Rappel\attack.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\climbDown.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptEscape.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptPickUp.cs" />
+    <Compile Include="Assets\Scripts\Gather&amp;Rappel\spawnItem.cs" />
     <Compile Include="Assets\Scripts\Menu\playGame.cs" />
     <Compile Include="Assets\Scripts\StickyBackground.cs" />
+    <Compile Include="Assets\Scripts\WinLose.cs" />
     <Compile Include="Assets\Scripts\characterController2D.cs" />
+    <Compile Include="Assets\Scripts\endGame.cs" />
+    <Compile Include="Assets\Scripts\gameOverScreen.cs" />
+    <Compile Include="Assets\Scripts\inventoryManagement.cs" />
     <Compile Include="Assets\Scripts\smoothFollow.cs" />
+    <Compile Include="Assets\Scripts\sword.cs" />
     <Compile Include="Assets\Scripts\zombie.cs" />
   </ItemGroup>
   <ItemGroup>
