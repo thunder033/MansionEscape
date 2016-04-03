@@ -78,10 +78,10 @@
     <Compile Include="Assets\Scripts\Combatant.cs" />
     <Compile Include="Assets\Scripts\GameOver_TextChange.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\DamageManagement.cs" />
+    <Compile Include="Assets\Scripts\Gather&amp;Rappel\Item.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\attack.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\climbDown.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptEscape.cs" />
-    <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptPickUp.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\spawnItem.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Menu\healthBar.cs" />

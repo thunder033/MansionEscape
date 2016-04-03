@@ -798,10 +798,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd7678c614fb2c4db56e8a756baf5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: []
-  size: 4
+  capacity: 4
   display: {fileID: 1350714002}
   openSlot: {fileID: 11423188, guid: 2cc7e577fc32c7f478a27ef5e75ead17, type: 2}
+  filledSlot: {fileID: 11494064, guid: aefa97a004e43f44183f51c053144ced, type: 2}
 --- !u!1001 &487952893
 Prefab:
   m_ObjectHideFlags: 0

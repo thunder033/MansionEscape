@@ -106,17 +106,22 @@ public class characterController2D : MonoBehaviour {
                 jumpTimeout = .25f;
 			}
 
-			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
-				inventory.addItem(promptPickUp.pickMe.name);
+			if (Input.GetKeyDown (KeyCode.E) && Item.colliding != null) {
 
-				//test purposes
-				foreach (string g in inventory.inventory)
-				{
-					Debug.Log ("Inventory Contains: " + g);
-				}
+				if(Item.colliding.activeSelf && inventory.addItem(Item.colliding.GetComponent<Item>()))
+                {
+                    Debug.Log(inventory.getSize());
 
-				Destroy (promptPickUp.pickMe);
-				promptPickUp.guiEnable = false;
+                    //test purposes
+                    //foreach (Item g in inventory.inventory)
+                    //{
+                    //	Debug.Log ("Inventory Contains: " + g);
+                    //}
+
+                    Item.colliding.SetActive(false);
+                    Item.guiEnable = false;
+                }
+                
 			}
 		}
 
