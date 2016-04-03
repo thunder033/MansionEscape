@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Inventory))]
 public class characterController2D : MonoBehaviour {
 
 	public int health = 100;
@@ -10,6 +11,7 @@ public class characterController2D : MonoBehaviour {
 	bool facingRight = true;
 
 	Animator anim;
+    Inventory inventory;
 
 	bool grounded = false;
 	public Transform groundCheck;
@@ -25,6 +27,7 @@ public class characterController2D : MonoBehaviour {
 	void Start () 
 	{
 		anim = GetComponent<Animator> ();
+        inventory = GetComponent<Inventory>();
 	}
 
     // Update is called once per frame
@@ -104,10 +107,10 @@ public class characterController2D : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown (KeyCode.E) && promptPickUp.pickMe != null) {
-				inventoryManagement.addItem(promptPickUp.pickMe.name);
+				inventory.addItem(promptPickUp.pickMe.name);
 
 				//test purposes
-				foreach (string g in inventoryManagement.inventory)
+				foreach (string g in inventory.inventory)
 				{
 					Debug.Log ("Inventory Contains: " + g);
 				}

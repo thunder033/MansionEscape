@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptEscape.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\promptPickUp.cs" />
     <Compile Include="Assets\Scripts\Gather&amp;Rappel\spawnItem.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Menu\healthBar.cs" />
     <Compile Include="Assets\Scripts\Menu\playGame.cs" />
     <Compile Include="Assets\Scripts\StickyBackground.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="Assets\Scripts\characterController2D.cs" />
     <Compile Include="Assets\Scripts\endGame.cs" />
     <Compile Include="Assets\Scripts\gameOverScreen.cs" />
-    <Compile Include="Assets\Scripts\inventoryManagement.cs" />
     <Compile Include="Assets\Scripts\smoothFollow.cs" />
     <Compile Include="Assets\Scripts\sword.cs" />
     <Compile Include="Assets\Scripts\zombie.cs" />
