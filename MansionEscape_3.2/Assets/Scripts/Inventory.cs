@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(characterController2D))]
 public class Inventory : MonoBehaviour {
 
 	List<Item> inventory;
@@ -15,10 +16,13 @@ public class Inventory : MonoBehaviour {
     public Image openSlot;
     public Image filledSlot;
 
+    characterController2D avatar;
+
     // Use this for initialization
     void Start () {
 		inventory = new List<Item> ();
         drawSlots();
+        avatar = GetComponent<characterController2D>();
 	}
 	
 	public bool addItem(Item item)
@@ -29,6 +33,7 @@ public class Inventory : MonoBehaviour {
             capacity += 8;
         }
 
+        //Check for a stackable Item
         if(item.stackable)
         {
             Item stackable = inventory.Where(i => i.type == item.type).First();
@@ -37,6 +42,15 @@ public class Inventory : MonoBehaviour {
                 stackable.addStack();
                 added = true;
             }
+        }
+
+        //Check if the item is a weapon that can be picked up
+        Weapon weapon = item.GetComponent<Weapon>();
+        if(weapon != null)
+        {
+            avatar.weapon = weapon;
+            weapon.gameObject.SetActive(false);
+            weapon.transform.SetParent(gameObject.transform);
         }
 
         if(getSize() < capacity && !added)

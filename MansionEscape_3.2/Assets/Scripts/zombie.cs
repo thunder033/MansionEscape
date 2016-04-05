@@ -8,7 +8,7 @@ public class zombie : MonoBehaviour {
     Animator anim;
     int direction = 1;
     float attackCooldown = 0;
-	public static bool touching = false;
+	bool touching = false;
 	bool attacking = false;
 	public int health = 100;
     public const float damage = .55f;
@@ -76,12 +76,13 @@ public class zombie : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag ("Player")) 
-		{
-			touching = true;
-		}
+        Weapon weapon = other.GetComponent<Weapon>();
+        if(weapon != null)
+        {
+            health -= (int)(weapon.damage);
+        }
 
-		else if (other.CompareTag ("PlayerWeapon")) 
+		if (other.CompareTag ("PlayerWeapon")) 
 		{
 			health -= 20;
 			Debug.Log ("Zom Health " + health);

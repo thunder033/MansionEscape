@@ -25,6 +25,8 @@ public class characterController2D : MonoBehaviour {
     public float attackCooldown = 0f;
     List<zombie> attackers;
 
+    public Weapon weapon = null;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -61,7 +63,7 @@ public class characterController2D : MonoBehaviour {
             Flip();
         }
 
-        //   }
+        //}
 
         if (jumping && jumpTimeout > 0)
         {
@@ -85,10 +87,20 @@ public class characterController2D : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(attackCooldown < 1.0f && weapon != null)
         {
-            sword.Attack();
+            weapon.gameObject.SetActive(false);
+        }
 
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+            anim.SetBool("Attacking", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && attackCooldown <= 0)
+        {
+            anim.SetBool("Attacking", true);
         }
 
         if (climbDown.onRope == true) {
@@ -112,8 +124,6 @@ public class characterController2D : MonoBehaviour {
 
                 if (Item.colliding.activeSelf && inventory.addItem(Item.colliding.GetComponent<Item>()))
                 {
-                    Debug.Log(inventory.getSize());
-
                     Item.colliding.SetActive(false);
                     Item.guiEnable = false;
                 }
@@ -121,11 +131,14 @@ public class characterController2D : MonoBehaviour {
             }
         }
 
+        anim.SetBool("Damaged", false);
         attackers.ForEach(zombie =>
         {
             if (zombie.isDamaging())
             {
                 health -= zombie.damage * Time.deltaTime;
+                anim.SetBool("Damaged", true);
+                attackCooldown = 0.5f;
             }
         });
 
@@ -135,6 +148,16 @@ public class characterController2D : MonoBehaviour {
             Application.LoadLevel("Menu1");
         }
 
+    }
+
+    public void Attack()
+    {
+        if (weapon != null)
+        {
+            weapon.gameObject.SetActive(true);
+            weapon.Attack();
+        }
+        attackCooldown = 2.0f;
     }
 
     void OnTriggerEnter2D(Collider2D other)

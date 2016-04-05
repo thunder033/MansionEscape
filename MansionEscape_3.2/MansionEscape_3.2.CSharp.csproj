@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Menu\healthBar.cs" />
     <Compile Include="Assets\Scripts\Menu\playGame.cs" />
     <Compile Include="Assets\Scripts\StickyBackground.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\WinLose.cs" />
     <Compile Include="Assets\Scripts\characterController2D.cs" />
     <Compile Include="Assets\Scripts\endGame.cs" />
