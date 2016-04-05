@@ -9,8 +9,9 @@ public class zombie : MonoBehaviour {
     int direction = 1;
     float attackCooldown = 0;
 	public static bool touching = false;
-	public static bool attacking = false;
+	bool attacking = false;
 	public int health = 100;
+    public const float damage = .55f;
 
     Vector3 velocity;
     float moveTimer = 0;
@@ -38,9 +39,16 @@ public class zombie : MonoBehaviour {
 
         if((moveTimer + period/2) % (period * 2) > period && attackCooldown <= 0)
         {
-            velocity = new Vector3(speed, 0, 0) * Mathf.Sign(Mathf.Sin(moveTimer/period)) * Time.deltaTime;
+            velocity = new Vector3(speed, 0, 0) * Mathf.Sign(Mathf.Sin(moveTimer/period));
         }
-        
+
+        Vector3 disp = this.transform.position - target.transform.position;
+        if (disp.magnitude < 8f && Mathf.Sign(disp.x) != direction && attackCooldown == 0)
+        {
+            velocity = new Vector3(speed, 0, 0) * Mathf.Sign(disp.x) * -1;
+        }
+
+        velocity *= Time.deltaTime;
         anim.SetFloat("MoveSpeed", velocity.magnitude);
         transform.position += velocity;
 
@@ -48,8 +56,7 @@ public class zombie : MonoBehaviour {
 			Flip ();
 		}
 
-        Vector3 disp = this.transform.position - target.transform.position;
-        if (disp.magnitude < 2 && attackCooldown <= 0)
+        if (disp.magnitude < 2.75f && attackCooldown <= 0)
         {
             anim.SetBool("Attacking", true);
 			attacking = true;
@@ -63,6 +70,8 @@ public class zombie : MonoBehaviour {
 		if (health <= 0) {
 			Destroy(gameObject);
 		}
+
+
 	}
 
 	public void OnTriggerEnter2D(Collider2D other)
@@ -86,6 +95,11 @@ public class zombie : MonoBehaviour {
 			touching = false;
 		}
 	}
+
+    public bool isDamaging()
+    {
+        return attackCooldown > .75f && attackCooldown < 2.5f;
+    }
 	
 
     //flip character through scaling

@@ -24,6 +24,11 @@ public class Inventory : MonoBehaviour {
 	public bool addItem(Item item)
 	{
         bool added = false;
+        if(item.GetComponent<Backpack>() != null)
+        {
+            capacity += 8;
+        }
+
         if(item.stackable)
         {
             Item stackable = inventory.Where(i => i.type == item.type).First();

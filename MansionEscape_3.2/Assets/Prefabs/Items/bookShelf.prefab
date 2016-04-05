@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 448010}
   - 212: {fileID: 21201150}
-  - 50: {fileID: 5099946}
   - 61: {fileID: 6188768}
+  - 50: {fileID: 5099946}
   m_Layer: 0
   m_Name: bookShelf
   m_TagString: Untagged

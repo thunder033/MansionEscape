@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
     public static GameObject colliding = null;
     public static bool guiEnable = true;
 
-	void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Player")) 
 		{
