@@ -4879,7 +4879,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2455908ffd8ab3e4394ebd16f1202b73, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -9993,7 +9993,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 471818, guid: 60ead63df376aef46b5256a2f28df3d5, type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60ead63df376aef46b5256a2f28df3d5, type: 2}
@@ -10447,7 +10447,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430368, guid: 5da31010b93851b429b0074e3ccb8620, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5da31010b93851b429b0074e3ccb8620, type: 2}
@@ -10918,7 +10918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 442171849}
-  weaponIcon: {fileID: 0}
+  weaponIcon: {fileID: 431643617}
   damageText: {fileID: 858113834}
 --- !u!1 &1952537340
 GameObject:
