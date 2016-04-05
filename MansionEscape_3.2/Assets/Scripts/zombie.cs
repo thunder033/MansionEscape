@@ -70,9 +70,12 @@ public class zombie : MonoBehaviour {
 		if (health <= 0) {
 			Destroy(gameObject);
 		}
+    }
 
-
-	}
+    public void TookDamage()
+    {
+        anim.SetBool("Damaged", false);
+    }
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
@@ -80,13 +83,9 @@ public class zombie : MonoBehaviour {
         if(weapon != null)
         {
             health -= (int)(weapon.damage);
+            anim.SetBool("Damaged", true);
+            attackCooldown = .75f;
         }
-
-		if (other.CompareTag ("PlayerWeapon")) 
-		{
-			health -= 20;
-			Debug.Log ("Zom Health " + health);
-		}
 	}
 
 	public void OnTriggerExit2D(Collider2D other)

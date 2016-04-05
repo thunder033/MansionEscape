@@ -84,13 +84,20 @@ public class Inventory : MonoBehaviour {
         foreach (Transform child in display) drawnSlots.Add(child.gameObject);
         drawnSlots.ForEach(slot => Destroy(slot));
 
-        inventory.Sort((a, b) => a.size - b.size);
+        inventory.Sort((a, b) => b.size - a.size);
         int i = 0;
         foreach (Item item in inventory)
         {
             Image slot = Instantiate(filledSlot);
             slot.transform.SetParent(display, false);
             slot.transform.position = new Vector3(display.position.x + (i / 2) * blockSize, display.position.y - (i % 2) * blockSize);
+
+            //for seom reason this doesn't work
+            if (item.size > 1)
+            {
+                Rect rect = slot.rectTransform.rect;
+                slot.rectTransform.rect.Set(rect.x, rect.y, rect.width, 2 * blockSize);
+            }
 
             Image icon = Instantiate(filledSlot);
             icon.sprite = item.GetComponent<SpriteRenderer>().sprite;
